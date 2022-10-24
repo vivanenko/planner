@@ -31,7 +31,7 @@ public class Planner : IPlanner
     {
         var docs = await _todoLists
             .Find(e => e.OwnerId == userId || e.SharedTo.Contains(userId))
-            .SortBy(e => e.CreatedAt)
+            .SortByDescending(e => e.CreatedAt)
             .Limit(limit)
             .Skip(offset)
             .ToListAsync();
