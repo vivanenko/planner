@@ -8,8 +8,14 @@
 
   <ItemGroup>
     <None Remove="MongoDB.Driver" />
+    <None Remove="MongoDb\" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MongoDb\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>

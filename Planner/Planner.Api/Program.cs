@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using Planner;
 using Planner.Api;
+using Planner.MongoDb;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 var cs = builder.Configuration.GetSection("MongoDbConnection").Value;
 var mc = new MongoClient(cs);
 builder.Services.AddScoped<IMongoClient>(sp => mc);
-builder.Services.AddTransient<IPlanner, Planner.Planner>();
+builder.Services.AddTransient<IPlannerRepository, PlannerRepository>();
+builder.Services.AddTransient<IPlanner, Planner.Services.Planner>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -13,3 +13,21 @@ public interface IPlanner
     Task ShareAsync(string userId, string listId, string targetUserId);
     Task RevokeAsync(string userId, string listId, string targetUserId);
 }
+
+public class TodoListCreate
+{
+    [Required]
+    [StringLength(255, MinimumLength = 1)]
+    public string Name { get; set; }
+    public Todo[] Tasks { get; set; }
+}
+
+public class TodoListUpdate
+{
+    [Required]
+    public string Id { get; set; }
+    [Required]
+    [StringLength(255, MinimumLength = 1)]
+    public string Name { get; set; }
+    public Todo[] Tasks { get; set; }
+}
